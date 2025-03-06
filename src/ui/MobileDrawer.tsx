@@ -55,8 +55,6 @@ export default function MobileDrawer() {
 			<List>
 				{navItems.map(item => (
 					<ListItem
-						component={NavLink}
-						to={item.path}
 						sx={{
 							color: 'secondary.main',
 							'&.active': {

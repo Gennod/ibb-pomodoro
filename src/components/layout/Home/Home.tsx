@@ -44,7 +44,10 @@ function Home() {
 		setTimeLeft(currentTimeLimit)
 	}, [mode])
 
-	const toggleTimer = useCallback(() => dispatch(setIsRunning(!isRunning)), [])
+	const toggleTimer = useCallback(
+		() => dispatch(setIsRunning(!isRunning)),
+		[isRunning]
+	)
 
 	const skipSession = useCallback(() => {
 		handleTimerEnd()
