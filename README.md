@@ -1,54 +1,94 @@
-# React + TypeScript + Vite
+# IBB "Pomodoro App"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Данный проект представляет собой приложение Pomodoro
 
-Currently, two official plugins are available:
+## Функционал
+- Смена светлой и темной темы
+- Трекинг времени обучения/отдыха
+- Сессии
+- Сброс текущего времени
+- Возможность настройки времени для обучения/отдыха или количества сессий
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Технологии
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+- ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+- ![Redux + RTK](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+- ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
+- ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+- ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+- ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
 
-## Expanding the ESLint configuration
+## Установка и запуск
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Клонируйте репозиторий:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone https://github.com/Gennod/ibb-pomodoro.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Установите зависимости:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+3. Запустите приложение:
+
+```bash
+npm run dev
+```
+
+## Демо
+
+Посмотреть работающее приложение можно здесь:
+[IBB-POMODORO](https://ibb-pomodoro.netlify.app/)
+
+## Структура проекта
+
+```
+├── .gitignore
+├── .prettierrc
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+    ├── icon.svg
+    └── netlify.toml
+├── src
+    ├── components
+    │   └── layout
+    │   │   ├── Home
+    │   │       └── Home.tsx
+    │   │   └── Settings
+    │   │       ├── Settings.data.tsx
+    │   │       └── Settings.tsx
+    ├── contexts
+    │   └── ThemeContext.tsx
+    ├── index.css
+    ├── main.tsx
+    ├── store
+    │   ├── features
+    │   │   └── timer.slice.ts
+    │   ├── hooks.ts
+    │   └── index.ts
+    ├── theme.ts
+    ├── types
+    │   └── Slider.ts
+    ├── ui-build
+    │   └── ControlButton.tsx
+    ├── ui
+    │   ├── CircularProgressWithLabel.tsx
+    │   ├── DesktopDrawer.tsx
+    │   ├── MobileDrawer.tsx
+    │   └── Slider.tsx
+    ├── utils
+    │   └── formatTime.ts
+    └── vite-env.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts
+
 ```
